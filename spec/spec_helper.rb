@@ -14,7 +14,8 @@ RSpec.configure do |config|
 end
 
 def create_cell(status)
-  GameOfLife::Cell.new(status: status)
+  life_status = status == :alive ? GameOfLife::Alive.new : GameOfLife::Dead.new
+  GameOfLife::Cell.new(status: life_status)
 end
 
 def hood(cell_status, other_cells)

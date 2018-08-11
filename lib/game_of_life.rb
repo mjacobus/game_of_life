@@ -7,6 +7,7 @@ require 'game_of_life/biological_laws/underpopulation'
 require 'game_of_life/biological_laws/stay_alive'
 require 'game_of_life/biological_laws/overpopulation'
 require 'game_of_life/biological_laws/reproduction'
+require 'canvas'
 
 module GameOfLife
   # Your code goes here...

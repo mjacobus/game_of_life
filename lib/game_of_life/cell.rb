@@ -1,7 +1,8 @@
 module GameOfLife
   class Cell
-    def initialize(status:)
+    def initialize(status: :alive)
       @alive = status == :alive
+      @neighbors = []
     end
 
     def alive?
@@ -14,6 +15,14 @@ module GameOfLife
 
     def resurrect
       @alive = true
+    end
+
+    def be_neighbors_with(cell)
+      @neighbors << cell
+    end
+
+    def neighbors
+      @neighbors
     end
   end
 end

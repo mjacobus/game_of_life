@@ -16,3 +16,17 @@ end
 def create_cell(status)
   GameOfLife::Cell.new(status: status)
 end
+
+def hood(cell_status, other_cells)
+  cell = create_cell(cell_status)
+
+  neighbors = other_cells.map do |status|
+    create_cell(status)
+  end
+
+  neighbors.each do |other_cell|
+    cell.be_neighbors_with(other_cell)
+  end
+
+  cell
+end

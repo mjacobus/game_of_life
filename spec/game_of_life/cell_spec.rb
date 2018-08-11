@@ -32,4 +32,23 @@ RSpec.describe GameOfLife::Cell do
       expect(cell).to be_alive
     end
   end
+
+  describe '#neighbors' do
+    it 'is initialy empty' do
+      cell = create_cell(:alive)
+
+      expect(cell.neighbors).to eq([])
+    end
+  end
+
+  describe '#be_neighbors_with' do
+    it 'creates a neibourhood relatinship with another cell' do
+      cell = create_cell(:dead)
+      other_cell = create_cell(:alive)
+
+      cell.be_neighbors_with(other_cell)
+
+      expect(cell.neighbors).to eq([other_cell])
+    end
+  end
 end

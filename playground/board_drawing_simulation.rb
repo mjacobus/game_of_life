@@ -6,8 +6,7 @@ height = 50
 width = 150
 canvas = Canvas::TerminalCanvas.new(
   height: height,
-  width: width,
-  
+  width: width
 )
 
 def cells(x, y)
@@ -19,6 +18,7 @@ def cells(x, y)
 end
 
 strategy = Canvas::DrawingStrategies::KeyStroke.new
+strategy = Canvas::DrawingStrategies::Sleep.new(seconds: 0.5)
 
 1.upto(3) do
   lines = cells(height - 2, width - 2)

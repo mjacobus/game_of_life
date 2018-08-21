@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GameOfLife
   module BiologicalLaws
     class Overpopulation
@@ -13,4 +15,3 @@ module GameOfLife
     end
   end
 end
-

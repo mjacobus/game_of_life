@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe GameOfLife::BiologicalLaws::Reproduction do
@@ -6,7 +8,7 @@ RSpec.describe GameOfLife::BiologicalLaws::Reproduction do
   describe '#perform' do
     context 'when it is dead and it has 3 live neighbours' do
       it 'resurrects the cel' do
-        cell = hood(:dead, [:alive, :alive, :alive, :dead])
+        cell = hood(:dead, %i[alive alive alive dead])
 
         action = law.apply(cell)
 
@@ -16,7 +18,7 @@ RSpec.describe GameOfLife::BiologicalLaws::Reproduction do
 
     context 'when it is dead and it has more than 3 live neighbours' do
       it 'does nothing' do
-        cell = hood(:dead, [:alive, :alive, :alive, :dead, :alive])
+        cell = hood(:dead, %i[alive alive alive dead alive])
 
         action = law.apply(cell)
 

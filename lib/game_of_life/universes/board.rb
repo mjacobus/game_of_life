@@ -3,15 +3,20 @@ module GameOfLife
     class Board < Universe
       def initialize(cells:)
         super(cells: cells.flatten)
-        arrange_neighborhood(cells)
+        @config = cells
+        arrange_neighborhood
+      end
+
+      def to_a
+        @config
       end
 
       private
 
-      def arrange_neighborhood(matrix)
-        matrix.each_with_index do |line, y|
+      def arrange_neighborhood
+        to_a.each_with_index do |line, y|
           line.each_with_index do |cell, x|
-            neighbors = get_neighbors(x: x, y: y, matrix: matrix)
+            neighbors = get_neighbors(x: x, y: y)
             neighbors.each do |neighbor|
               cell.be_neighbors_with(neighbor)
             end
@@ -19,22 +24,22 @@ module GameOfLife
         end
       end
 
-      def get_neighbors(x:, y:, matrix:)
+      def get_neighbors(x:, y:)
         [
-          get_neighbor(x: x - 1, y: y - 1, matrix: matrix),
-          get_neighbor(x: x + 0, y: y - 1, matrix: matrix),
-          get_neighbor(x: x + 1, y: y - 1, matrix: matrix),
+          get_neighbor(x: x - 1, y: y - 1),
+          get_neighbor(x: x + 0, y: y - 1),
+          get_neighbor(x: x + 1, y: y - 1),
 
-          get_neighbor(x: x - 1, y: y + 0, matrix: matrix),
-          get_neighbor(x: x + 1, y: y + 0, matrix: matrix),
+          get_neighbor(x: x - 1, y: y + 0),
+          get_neighbor(x: x + 1, y: y + 0),
 
-          get_neighbor(x: x - 1, y: y + 1, matrix: matrix),
-          get_neighbor(x: x + 0, y: y + 1, matrix: matrix),
-          get_neighbor(x: x + 1, y: y + 1, matrix: matrix),
+          get_neighbor(x: x - 1, y: y + 1),
+          get_neighbor(x: x + 0, y: y + 1),
+          get_neighbor(x: x + 1, y: y + 1),
         ].compact
       end
 
-      def get_neighbor(x:, y:, matrix:)
+      def get_neighbor(x:, y:)
         if y < 0
           return
         end
@@ -43,7 +48,7 @@ module GameOfLife
           return
         end
 
-        line = matrix[y]
+        line = to_a[y]
 
         unless line
           return

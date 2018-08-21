@@ -7,6 +7,7 @@ module Canvas
       xPosition = 0
       yPosition = 0
       @window = Curses::Window.new(@height, @width, xPosition, yPosition)
+      trap_signal
     end
 
     def draw(messages)
@@ -37,9 +38,23 @@ module Canvas
       next_line
     end
 
+
     private
 
     attr_reader :position
+
+    def trap_signal
+      %w[HUP INT QUIT TERM].each do |i|
+        if Curses.trap(i, "SIG_IGN") != 0 then  # 0 for SIG_IGN
+          Curses.trap(i) {|sig| on_signal(sig) }
+        end
+      end
+    end
+
+    def on_signal(signal)
+      stop
+      exit signal
+    end
 
     def window
       @window

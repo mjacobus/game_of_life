@@ -42,7 +42,7 @@ module GameOfLife
 
       def create_cell
         status = GameOfLife::Dead.new
-        if rand(2) == 1
+        if rand(10) == 1
           status = GameOfLife::Alive.new
         end
 

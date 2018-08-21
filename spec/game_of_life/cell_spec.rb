@@ -9,7 +9,7 @@ RSpec.describe GameOfLife::Cell do
     end
 
     it 'can be set to false' do
-      cell = described_class.new(status: :dead)
+      cell = create_cell(:dead)
 
       expect(cell).not_to be_alive
     end

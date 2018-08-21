@@ -30,7 +30,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```bash
+git clone https://github.com/mjacobus/game_of_life
+cd game_of_life
+bundle install
+./exe/game_of_life
+```
 
 ## Development
 

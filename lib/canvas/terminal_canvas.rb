@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Canvas
   class TerminalCanvas
     def initialize(width:, height:)
@@ -29,7 +31,7 @@ module Canvas
     end
 
     def write(message)
-      message = Array(message).join("")
+      message = Array(message).join('')
       window.addstr(message)
     end
 
@@ -37,7 +39,6 @@ module Canvas
       write(message)
       next_line
     end
-
 
     private
 
@@ -56,9 +57,7 @@ module Canvas
       exit signal
     end
 
-    def window
-      @window
-    end
+    attr_reader :window
 
     def stop
       Curses.close_screen

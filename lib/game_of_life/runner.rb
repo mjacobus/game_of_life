@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GameOfLife
   class Runner
     def initialize(universe:, laws:)
@@ -15,7 +17,7 @@ module GameOfLife
       actions.flatten.map(&:perform)
     end
 
-    def run(&block)
+    def run
       loop do
         yield(@universe)
         run_once

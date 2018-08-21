@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GameOfLife
   module Factories
     class BoardFactory
@@ -11,7 +13,7 @@ module GameOfLife
             BiologicalLaws::Reproduction.new,
             BiologicalLaws::StayAlive.new,
             BiologicalLaws::Underpopulation.new,
-          ],
+          ]
         )
       end
 

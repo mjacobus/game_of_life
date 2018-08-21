@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GameOfLife
   class Universe
     include Enumerable

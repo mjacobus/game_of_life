@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GameOfLife
   class Dead
     def alive?
@@ -5,4 +7,3 @@ module GameOfLife
     end
   end
 end
-

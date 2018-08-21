@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GameOfLife
   module Universes
     class Board < Universe

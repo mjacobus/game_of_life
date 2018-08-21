@@ -2,13 +2,14 @@
 
 if ENV['COVERALLS']
   require 'coveralls'
-  Coveralls.wear!
 end
 
 if ENV['COVERAGE']
   require 'simplecov'
 
-  SimpleCov.start
+  SimpleCov.start do
+    add_filter 'spec/'
+  end
 end
 
 require 'bundler/setup'

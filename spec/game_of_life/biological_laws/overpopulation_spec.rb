@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe GameOfLife::BiologicalLaws::Overpopulation do
@@ -6,7 +8,7 @@ RSpec.describe GameOfLife::BiologicalLaws::Overpopulation do
   describe '#perform' do
     context 'when it has more than 3 live neighbors' do
       it 'returns a kill action' do
-        cell = hood(:alive, [:alive, :alive, :alive, :alive, :dead])
+        cell = hood(:alive, %i[alive alive alive alive dead])
 
         action = law.apply(cell)
 
@@ -16,7 +18,7 @@ RSpec.describe GameOfLife::BiologicalLaws::Overpopulation do
 
     context 'when it has 3 or less live neighbors' do
       it 'does nothing' do
-        cell = hood(:alive, [:alive, :alive, :alive, :dead])
+        cell = hood(:alive, %i[alive alive alive dead])
 
         action = law.apply(cell)
 
@@ -25,4 +27,3 @@ RSpec.describe GameOfLife::BiologicalLaws::Overpopulation do
     end
   end
 end
-

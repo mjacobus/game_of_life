@@ -1,5 +1,12 @@
 # GameOfLife
 
+[![Build Status](https://travis-ci.org/mjacobus/game_of_life.svg?branch=master)](https://travis-ci.org/mjacobus/game_of_life)
+[![Coverage Status](https://coveralls.io/repos/github/mjacobus/game_of_life/badge.svg?branch=master)](https://coveralls.io/github/mjacobus/game_of_life?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c94722a8b170e7c807e7/maintainability)](https://codeclimate.com/github/mjacobus/game_of_life/maintainability)
+[![Issue Count](https://codeclimate.com/github/mjacobus/game_of_life/badges/issue_count.svg)](https://codeclimate.com/github/mjacobus/game_of_life)
+
+[![Gem Version](https://badge.fury.io/rb/game_of_life.svg)](https://badge.fury.io/rb/game_of_life)
+
 Quick demo on how a game of life could be performed in one code retreat.
 
 - Video available [here](https://www.youtube.com/watch?v=ph37hnIRnkE&feature=youtu.be)

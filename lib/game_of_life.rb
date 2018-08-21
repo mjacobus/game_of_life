@@ -1,4 +1,6 @@
-require "game_of_life/version"
+# frozen_string_literal: true
+
+require 'game_of_life/version'
 require 'game_of_life/cell'
 require 'game_of_life/actions/kill'
 require 'game_of_life/actions/nothing'

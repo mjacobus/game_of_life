@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :nocov:
 module Canvas
   class TerminalCanvas
     def initialize(width:, height:)

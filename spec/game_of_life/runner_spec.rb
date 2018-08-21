@@ -27,4 +27,20 @@ RSpec.describe GameOfLife::Runner do
       expect(cell).not_to be_alive
     end
   end
+
+  describe '#run' do
+    it 'applies all the rules to the universe' do
+      count = 0
+      game.run do |universe|
+        count += 1
+        expect(universe.cells).to eq([cell])
+
+        if count == 2
+          break
+        end
+      end
+
+      expect(cell).not_to be_alive
+    end
+  end
 end

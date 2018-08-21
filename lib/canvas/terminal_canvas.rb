@@ -44,9 +44,9 @@ module Canvas
     attr_reader :position
 
     def trap_signal
-      %w[HUP INT QUIT TERM].each do |i|
-        if Curses.trap(i, "SIG_IGN") != 0 then  # 0 for SIG_IGN
-          Curses.trap(i) {|sig| on_signal(sig) }
+      %w[HUP INT QUIT TERM].each do |option|
+        Signal.trap(option) do |signal|
+          exit signal
         end
       end
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GameOfLife
   class Cell
     def initialize(status: :alive)
@@ -21,8 +23,6 @@ module GameOfLife
       @neighbors << cell
     end
 
-    def neighbors
-      @neighbors
-    end
+    attr_reader :neighbors
   end
 end

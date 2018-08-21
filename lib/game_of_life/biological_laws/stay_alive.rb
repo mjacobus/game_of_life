@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GameOfLife
   module BiologicalLaws
     class StayAlive
@@ -7,4 +9,3 @@ module GameOfLife
     end
   end
 end
-

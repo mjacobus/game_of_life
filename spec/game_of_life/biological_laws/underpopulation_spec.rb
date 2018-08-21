@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe GameOfLife::BiologicalLaws::Underpopulation do
@@ -6,7 +8,7 @@ RSpec.describe GameOfLife::BiologicalLaws::Underpopulation do
   describe '#perform' do
     context 'when the cell is alive and has less then 2 live neigbours' do
       it 'returns a kill action' do
-        cell = hood(:alive, [:dead, :alive])
+        cell = hood(:alive, %i[dead alive])
 
         action = law.apply(cell)
 
@@ -16,7 +18,7 @@ RSpec.describe GameOfLife::BiologicalLaws::Underpopulation do
 
     describe 'when cell has 2 live neibors' do
       it 'returns nothing action' do
-        cell = hood(:alive, [:dead, :alive, :alive])
+        cell = hood(:alive, %i[dead alive alive])
 
         action = law.apply(cell)
 

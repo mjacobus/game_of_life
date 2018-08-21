@@ -5,10 +5,9 @@ module Canvas
     def initialize(width:, height:)
       @width = Integer(width)
       @height = Integer(height)
-      height = @height
-      xPosition = 0
-      yPosition = 0
-      @window = Curses::Window.new(@height, @width, xPosition, yPosition)
+      x_position = 0
+      y_position = 0
+      @window = Curses::Window.new(@height, @width, x_position, y_position)
       trap_signal
     end
 

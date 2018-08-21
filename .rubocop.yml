@@ -1,3 +1,5 @@
+# https://rubocop.readthedocs.io/en/latest/cops_naming/
+
 Lint/AmbiguousBlockAssociation:
   Enabled: false
 
@@ -42,6 +44,14 @@ Style/TrailingCommaInHashLiteral:
 Naming/PredicateName:
   NamePrefix:
     - is_
+
+Naming/UncommunicativeMethodParamName:
+  AllowedNames:
+    - x
+    - y
+
+Naming/AccessorMethodName:
+  Enabled: false
 
 Metrics/AbcSize:
   Max: 45

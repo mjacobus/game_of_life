@@ -42,11 +42,7 @@ module GameOfLife
       end
 
       def get_neighbor(x:, y:)
-        if y < 0
-          return
-        end
-
-        if x < 0
+        if y.negative? || x.negative?
           return
         end
 

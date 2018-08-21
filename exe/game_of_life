@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'game_of_life'
+
+factory = GameOfLife::Factories::BoardFactory.new
+options = { width: 200, height: 50 }
+waiter = Canvas::DrawingStrategies::KeyStroke.new
+waiter = Canvas::DrawingStrategies::Sleep.new(seconds: 0.3)
+
+game = factory.create(options)
+renderer = factory.create_renderer(options)
+
+game.run do |universe|
+  renderer.render(universe)
+  waiter.wait
+end

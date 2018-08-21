@@ -10,6 +10,7 @@ require 'game_of_life/biological_laws/reproduction'
 require 'game_of_life/universe'
 require 'game_of_life/alive'
 require 'game_of_life/dead'
+require 'game_of_life/runner'
 require 'canvas'
 
 module GameOfLife

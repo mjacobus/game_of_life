@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-if ENV['COVERALLS']
-  require 'coveralls'
-end
 
 if ENV['COVERAGE']
   require 'simplecov'
@@ -10,6 +7,11 @@ if ENV['COVERAGE']
   SimpleCov.start do
     add_filter 'spec/'
   end
+end
+
+if ENV['COVERALLS']
+  require 'coveralls'
+  Coveralls.wear!
 end
 
 require 'bundler/setup'

@@ -6,7 +6,7 @@ RSpec.describe GameOfLife::BiologicalLaws::Reproduction do
   let(:law) { subject }
 
   describe '#perform' do
-    context 'when it is dead and it has 3 live neighbours' do
+    context 'when it is dead and it has 3 live neighbors' do
       it 'resurrects the cel' do
         cell = hood(:dead, %i[alive alive alive dead])
 
@@ -16,7 +16,7 @@ RSpec.describe GameOfLife::BiologicalLaws::Reproduction do
       end
     end
 
-    context 'when it is dead and it has more than 3 live neighbours' do
+    context 'when it is dead and it has more than 3 live neighbors' do
       it 'does nothing' do
         cell = hood(:dead, %i[alive alive alive dead alive])
 

@@ -32,25 +32,25 @@ RSpec.describe GameOfLife::Universes::Board do
   it 'arranges neighboardhood correctly' do
     board
 
-    assert_neighbours(c11, [c12, c21, c22])
-    assert_neighbours(c12, [c11, c13, c21, c22, c23])
-    assert_neighbours(c13, [c12, c22, c23])
+    assert_neighbors(c11, [c12, c21, c22])
+    assert_neighbors(c12, [c11, c13, c21, c22, c23])
+    assert_neighbors(c13, [c12, c22, c23])
 
-    assert_neighbours(c21, [c11, c12, c22, c31, c32])
-    assert_neighbours(c22, [c11, c12, c13, c21, c23, c31, c32, c33])
-    assert_neighbours(c23, [c12, c13, c22, c32, c33])
+    assert_neighbors(c21, [c11, c12, c22, c31, c32])
+    assert_neighbors(c22, [c11, c12, c13, c21, c23, c31, c32, c33])
+    assert_neighbors(c23, [c12, c13, c22, c32, c33])
 
-    assert_neighbours(c31, [c21, c22, c32])
-    assert_neighbours(c32, [c21, c22, c23, c31, c33])
-    assert_neighbours(c33, [c22, c23, c32])
+    assert_neighbors(c31, [c21, c22, c32])
+    assert_neighbors(c32, [c21, c22, c23, c31, c33])
+    assert_neighbors(c33, [c22, c23, c32])
   end
 
-  def assert_neighbours(cell, expected_neighbours)
-    neighbours = cell.neighbors
-    expect(neighbours.length).to eq(expected_neighbours.length)
+  def assert_neighbors(cell, expected_neighbors)
+    neighbors = cell.neighbors
+    expect(neighbors.length).to eq(expected_neighbors.length)
 
-    expected_neighbours.each do |expected|
-      expect(neighbours).to include(expected)
+    expected_neighbors.each do |expected|
+      expect(neighbors).to include(expected)
     end
   end
 end
